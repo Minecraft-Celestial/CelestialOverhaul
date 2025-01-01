@@ -97,7 +97,7 @@ public class COModConfig {
 					.comment("A value of -1 disables this function")
 					.defineInRange("playerHungryDamageTweak", 0.02, -1, 1);
 			entityCrammingDamageTweak = builder
-					.comment("Suffocation damage scales with max health")
+					.comment("Suffocation and Cramming damage scales with max health")
 					.comment("newDamage = oldDamage * max(1, factor * maxHealth)")
 					.comment("A value of -1 disables this function")
 					.defineInRange("entityCrammingDamageTweak", 0.02, -1, 1);

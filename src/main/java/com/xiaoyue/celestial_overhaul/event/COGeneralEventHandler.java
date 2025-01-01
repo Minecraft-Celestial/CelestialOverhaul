@@ -1,9 +1,10 @@
 package com.xiaoyue.celestial_overhaul.event;
 
-import com.xiaoyue.celestial_overhaul.content.handler.WeaponBlockHandler;
+import com.xiaoyue.celestial_overhaul.content.EffectOverrideHandler;
+import com.xiaoyue.celestial_overhaul.content.OverhaulUtils;
+import com.xiaoyue.celestial_overhaul.content.WeaponBlockHandler;
 import com.xiaoyue.celestial_overhaul.data.COModConfig;
 import com.xiaoyue.celestial_overhaul.data.COTagGen;
-import com.xiaoyue.celestial_overhaul.content.handler.OverhaulUtils;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -32,6 +34,13 @@ import static com.xiaoyue.celestial_overhaul.CelestialOverhaul.MODID;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class COGeneralEventHandler {
+
+	@SubscribeEvent
+	public static void serverTick(TickEvent.ServerTickEvent event) {
+		if (event.phase == TickEvent.Phase.END) {
+			EffectOverrideHandler.check();
+		}
+	}
 
 	@SubscribeEvent
 	public static void onBlockedHurt(LivingHurtEvent event) {
@@ -70,7 +79,7 @@ public class COGeneralEventHandler {
 				event.setAmount(event.getAmount() * Math.max(1f, entity.getMaxHealth() * config.floatValue()));
 			}
 		}
-		if (source.is(DamageTypes.CRAMMING)) {
+		if (source.is(DamageTypes.CRAMMING) || source.is(DamageTypes.IN_WALL)) {
 			Double config = COModConfig.COMMON.entityCrammingDamageTweak.get();
 			if (config >= 0) {
 				event.setAmount(event.getAmount() * Math.max(1f, entity.getMaxHealth() * config.floatValue()));

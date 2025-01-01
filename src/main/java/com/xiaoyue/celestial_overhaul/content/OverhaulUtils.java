@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_overhaul.content.handler;
+package com.xiaoyue.celestial_overhaul.content;
 
 import com.xiaoyue.celestial_overhaul.data.COModConfig;
 import net.minecraft.core.BlockPos;

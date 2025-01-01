@@ -119,30 +119,16 @@ dependencies {
     if (rootMod.toBoolean()) {
         jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[MC1.20,MC1.21)")
     }
-    //implementation fg.deobf(jarJar(group: 'dev.xkmc.l2modularblock', name: 'l2modularblock', version: "[1.1.1,1.2.0)"))
-    //implementation fg.deobf(jarJar(group: 'dev.xkmc.l2serial', name: 'l2serial', version: "[1.2.2,)"))
-    //implementation fg.deobf(jarJar(group: 'dev.xkmc.l2damagetracker', name: 'l2damagetracker', version: "[0.3.8,)"))
-    //implementation fg.deobf(jarJar(group: 'dev.xkmc.l2library', name: 'l2library', version: "[2.4.23,)"))
-
-    implementation fg.deobf("xiaoyue.celestial_core:celestial_core:1.4.2-slim")
-    implementation fg.deobf("xiaoyue.celestial_artifacts:celestial_artifacts:1.4.5")
-    implementation fg.deobf("dev.xkmc.l2tabs:l2tabs:0.3.1")
-    implementation fg.deobf("dev.xkmc.l2screentracker:l2screentracker:0.1.4")
-    runtimeOnly fg.deobf("dev.xkmc.l2itemselector:l2itemselector:0.1.7")
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
     implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
     implementation fg.deobf("curse.maven:patchouli-306770:4636277")
     implementation fg.deobf("curse.maven:jade-324717:4654448")
-    implementation fg.deobf("curse.maven:create-328085:4762216")
     runtimeOnly fg.deobf("curse.maven:attributefix-280510:4588114")
     runtimeOnly fg.deobf("curse.maven:bookshelf-228525:4581675")
     runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
     runtimeOnly fg.deobf("curse.maven:caelus-308989:4581481")
     runtimeOnly fg.deobf("curse.maven:elytra-slot-317716:4598379")
-
-    implementation fg.deobf("curse.maven:apotheosis-313970:5209354")
-    implementation fg.deobf("curse.maven:apothic-attributes-898963:5209162")
-    implementation fg.deobf("curse.maven:placebo-283644:5098182")
+    runtimeOnly fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:4599236")
 
 
 }

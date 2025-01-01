@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package com.xiaoyue.celestial_overhaul.content.handler;
+package com.xiaoyue.celestial_overhaul.content;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

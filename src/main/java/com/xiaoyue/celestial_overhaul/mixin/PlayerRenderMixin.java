@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_overhaul.mixin;
 
 import com.xiaoyue.celestial_overhaul.COverhaulClient;
-import com.xiaoyue.celestial_overhaul.content.handler.WeaponBlockHandler;
+import com.xiaoyue.celestial_overhaul.content.WeaponBlockHandler;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;

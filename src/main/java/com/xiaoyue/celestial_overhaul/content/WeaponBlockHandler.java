@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_overhaul.content.handler;
+package com.xiaoyue.celestial_overhaul.content;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

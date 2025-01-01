@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_overhaul.mixin;
 
-import com.xiaoyue.celestial_overhaul.content.handler.WeaponBlockHandler;
+import com.xiaoyue.celestial_overhaul.content.WeaponBlockHandler;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;

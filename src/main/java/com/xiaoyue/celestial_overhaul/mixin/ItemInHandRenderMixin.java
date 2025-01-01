@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_overhaul.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.xiaoyue.celestial_overhaul.content.handler.WeaponBlockHandler;
+import com.xiaoyue.celestial_overhaul.content.WeaponBlockHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
