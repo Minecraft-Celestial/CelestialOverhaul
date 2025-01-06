@@ -43,6 +43,8 @@ public class COModConfig {
 		public final ForgeConfigSpec.DoubleValue protectionEnchantmentTweak;
 		public final ForgeConfigSpec.DoubleValue fullFoodLevelHealTweak;
 		public final ForgeConfigSpec.DoubleValue fireTypeDamageTweak;
+		public final ForgeConfigSpec.DoubleValue frozenTypeDamageTweak;
+		public final ForgeConfigSpec.BooleanValue scalingToPlayerOnly;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			builder.push("misc");
@@ -86,11 +88,19 @@ public class COModConfig {
 			builder.pop();
 
 			builder.push("max_health_based_scaling");
+			scalingToPlayerOnly = builder
+					.comment("All damage scaling applies to player only")
+					.define("scalingToPlayerOnly",false);
 			fireTypeDamageTweak = builder
 					.comment("Fire type damage scales with max health")
 					.comment("newDamage = oldDamage * max(1, factor * maxHealth)")
 					.comment("A value of -1 disables this function")
 					.defineInRange("fireTypeDamageTweak", 0.02, -1, 1);
+			frozenTypeDamageTweak = builder
+					.comment("Frozen type damage scales with max health")
+					.comment("newDamage = oldDamage * max(1, factor * maxHealth)")
+					.comment("A value of -1 disables this function")
+					.defineInRange("frozenTypeDamageTweak", 0.02, -1, 1);
 			playerHungryDamageTweak = builder
 					.comment("Starvation damage scales with max health")
 					.comment("newDamage = oldDamage * max(1, factor * maxHealth)")
@@ -142,19 +152,19 @@ public class COModConfig {
 	}
 
 	public static final ForgeConfigSpec CLIENT_SPEC;
-	public static final COModConfig.Client CLIENT;
+	public static final Client CLIENT;
 
 	public static final ForgeConfigSpec COMMON_SPEC;
-	public static final COModConfig.Common COMMON;
+	public static final Common COMMON;
 
 	public static String COMMON_PATH;
 
 	static {
-		final Pair<COModConfig.Client, ForgeConfigSpec> client = new ForgeConfigSpec.Builder().configure(COModConfig.Client::new);
+		final Pair<Client, ForgeConfigSpec> client = new ForgeConfigSpec.Builder().configure(Client::new);
 		CLIENT_SPEC = client.getRight();
 		CLIENT = client.getLeft();
 
-		final Pair<COModConfig.Common, ForgeConfigSpec> common = new ForgeConfigSpec.Builder().configure(COModConfig.Common::new);
+		final Pair<Common, ForgeConfigSpec> common = new ForgeConfigSpec.Builder().configure(Common::new);
 		COMMON_SPEC = common.getRight();
 		COMMON = common.getLeft();
 	}

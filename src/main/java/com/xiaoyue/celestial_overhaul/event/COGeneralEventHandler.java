@@ -73,6 +73,12 @@ public class COGeneralEventHandler {
 				event.setAmount(event.getAmount() * Math.max(1f, entity.getMaxHealth() * config.floatValue()));
 			}
 		}
+		if (source.is(DamageTypes.FREEZE)) {
+			Double config = COModConfig.COMMON.frozenTypeDamageTweak.get();
+			if (config >= 0) {
+				event.setAmount(event.getAmount() * Math.max(1f, entity.getMaxHealth() * config.floatValue()));
+			}
+		}
 		if (source.is(DamageTypes.FALL)) {
 			Double config = COModConfig.COMMON.entityFallDamageTweak.get();
 			if (config >= 0) {
