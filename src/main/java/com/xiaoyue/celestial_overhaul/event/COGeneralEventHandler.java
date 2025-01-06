@@ -65,7 +65,7 @@ public class COGeneralEventHandler {
 	public static void onLivingDamage(LivingDamageEvent event) {
 		DamageSource source = event.getSource();
 		LivingEntity entity = event.getEntity();
-		if (source.getEntity() != null || source.getDirectEntity() != null || entity.getType().is(COTagGen.DAMAGE_SCALING_BLACK_LIST))
+		if (source.getEntity() != null || source.getDirectEntity() != null || !COTagGen.allow(entity))
 			return;
 		if (source.is(DamageTypes.STARVE)) {
 			Double config = COModConfig.COMMON.playerHungryDamageTweak.get();

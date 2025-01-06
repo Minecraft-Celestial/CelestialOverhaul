@@ -24,7 +24,7 @@ public class MobEffectMixin {
 	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 0), index = 1, method = "applyEffectTick")
 	public float celestial_overhaul$modifyPoison(float pAmount, @Local(argsOnly = true) LivingEntity entity) {
 		Double config = COModConfig.COMMON.poisonEffectDamageTweak.get();
-		if (config >= 0 && !entity.getType().is(COTagGen.DAMAGE_SCALING_BLACK_LIST)) {
+		if (config >= 0 && COTagGen.allow(entity)) {
 			return pAmount * Math.max(1f, entity.getHealth() * config.floatValue());
 		}
 		return pAmount;
@@ -33,7 +33,7 @@ public class MobEffectMixin {
 	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 1), index = 1, method = "applyEffectTick")
 	public float celestial_overhaul$modifyWither(float pAmount, @Local(argsOnly = true) LivingEntity entity) {
 		Double config = COModConfig.COMMON.witherEffectDamageTweak.get();
-		if (config >= 0 && !entity.getType().is(COTagGen.DAMAGE_SCALING_BLACK_LIST)) {
+		if (config >= 0 && COTagGen.allow(entity)) {
 			return pAmount * Math.max(1f, entity.getMaxHealth() * config.floatValue());
 		}
 		return pAmount;
