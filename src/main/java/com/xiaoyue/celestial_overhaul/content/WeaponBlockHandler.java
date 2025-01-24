@@ -17,6 +17,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class WeaponBlockHandler {
 
 	public static boolean isCurrentItem(ItemStack stack) {
+		if (!COModConfig.COMMON.canUseSwordBlock.get()) return false;
 		return stack.getItem() instanceof SwordItem || stack.getItem() instanceof CanBlockItem || stack.is(COTagGen.CAN_BLOCK_SWORD);
 	}
 
