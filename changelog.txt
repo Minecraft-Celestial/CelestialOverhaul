@@ -1,3 +1,6 @@
+1.1.5
+- Allow sword blocking to coexist with sword right click functions
+
 1.1.4
 - Fix sword block cannot be disabled properly
 
